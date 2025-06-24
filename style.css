@@ -1,6 +1,6 @@
 .milestones {
   display: flex;
-  flex-direction: column;  /* Stack vertically */
+  flex-direction: column;  /* Stack milestone sections vertically */
   align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
@@ -17,11 +17,22 @@
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 250px; /* Keep consistent width */
+  width: 250px; /* Consistent width */
   text-align: center;
+  margin-bottom: 0.5rem; /* Space between buttons */
+  display: block; /* Make buttons take full width */
 }
 
 .milestone:hover {
   background: #38bdf8;
   color: white;
+}
+
+/* New container for download buttons inside milestone */
+.download-links-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons horizontally */
+  gap: 0.5rem; /* Space between buttons */
+  margin-top: 0.5rem;
 }
