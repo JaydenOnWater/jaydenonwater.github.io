@@ -1,78 +1,25 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0d0d0d;
-  color: #fff;
-}
+function loadPacks(subs) {
+  const packs = {
+    100: [{ name: 'Dark Blue Recolor', url: 'dark-blue.html' }],
+    300: [{ name: 'Pure Red Recolor', url: 'pure-red.html' }],
+    500: [{ name: 'Pink Recolor', url: 'pink.html' }],
+    1000: [{ name: 'Black & White Recolor', url: 'black-white.html' }],
+    // Add more as you create them
+  };
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  text-align: center;
-}
+  const container = document.getElementById('packs');
+  container.innerHTML = '';
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.2rem;
-  color: #38bdf8;
-}
+  if (!packs[subs]) {
+    container.innerHTML = `<p>No packs for ${subs} subs yet.</p>`;
+    return;
+  }
 
-.subtitle {
-  color: #aaa;
-  margin-bottom: 2rem;
+  packs[subs].forEach(pack => {
+    const btn = document.createElement('a');
+    btn.href = pack.url;
+    btn.className = 'pack-button';
+    btn.textContent = pack.name;
+    container.appendChild(btn);
+  });
 }
-
-.video-container iframe {
-  width: 100%;
-  max-width: 640px;
-  height: 360px;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.milestones {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.milestone {
-  background: #1e293b;
-  padding: 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
-
-.milestone:hover {
-  background: #38bdf8;
-  color: black;
-}
-
-.packs-section {
-  margin-top: 1rem;
-}
-
-.pack-button {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.8rem 1.2rem;
-  background: #38bdf8;
-  color: black;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.pack-button:hover {
-  opacity: 0.85;
-}
-
-.hint {
-  color: #777;
-}
-
