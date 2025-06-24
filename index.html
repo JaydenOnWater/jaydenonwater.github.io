@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dramer PvP Packs</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Dramer PvP Pack Collection</h1>
-      <p>Unlock PvP texture packs based on YouTube milestones!</p>
-    </header>
+  <main class="container">
+    <h1>Dramer PvP Recolor Packs</h1>
+    <p class="subtitle">Milestone-based PvP texture packs</p>
 
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/2p3pC2JYfbc" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <section class="milestones">
-      <button class="milestone" onclick="showPacks(100)">100 Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(300)">300 Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(500)">500 Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(1000)">1k Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(2000)">2k Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(5000)">5k Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(10000)">10k Subscribers Special Pack</button>
-      <button class="milestone" onclick="showPacks(20000)">20k Subscribers Special Pack</button>
+      <div class="milestone" onclick="loadPacks(100)">100 Subs</div>
+      <div class="milestone" onclick="loadPacks(300)">300 Subs</div>
+      <div class="milestone" onclick="loadPacks(500)">500 Subs</div>
+      <div class="milestone" onclick="loadPacks(1000)">1K Subs</div>
+      <div class="milestone" onclick="loadPacks(2000)">2K Subs</div>
+      <div class="milestone" onclick="loadPacks(5000)">5K Subs</div>
+      <div class="milestone" onclick="loadPacks(10000)">10K Subs</div>
+      <div class="milestone" onclick="loadPacks(20000)">20K Subs</div>
     </section>
 
-    <div id="packs-container" class="packs-section">
-      <!-- Packs will be loaded here -->
-    </div>
-  </div>
+    <section id="packs" class="packs-section">
+      <p class="hint">Click a milestone to see packs.</p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
