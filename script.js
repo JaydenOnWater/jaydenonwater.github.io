@@ -1,25 +1,47 @@
-function loadPacks(subs) {
-  const packs = {
-    100: [{ name: 'Dark Blue Recolor', url: 'dark-blue.html' }],
-    300: [{ name: 'Pure Red Recolor', url: 'pure-red.html' }],
-    500: [{ name: 'Pink Recolor', url: 'pink.html' }],
-    1000: [{ name: 'Black & White Recolor', url: 'black-white.html' }],
-    // Add more as you create them
-  };
+const milestonePacks = {
+  "100": [
+    { name: "Red Recolor", url: "https://example.com/100-red.zip" },
+    { name: "Orange Recolor", url: "https://example.com/100-orange.zip" },
+    { name: "Yellow Recolor", url: "https://example.com/100-yellow.zip" },
+    { name: "Gold Recolor", url: "https://example.com/100-gold.zip" },
+  ],
+  "300": [
+    { name: "Green Recolor", url: "https://example.com/300-green.zip" },
+    { name: "Lime Recolor", url: "https://example.com/300-lime.zip" },
+    { name: "Chartreuse Recolor", url: "https://example.com/300-chartreuse.zip" },
+    { name: "Olive Recolor", url: "https://example.com/300-olive.zip" },
+  ],
+  "500": [
+    { name: "Blue Recolor", url: "https://example.com/500-blue.zip" },
+    { name: "Sky Blue Recolor", url: "https://example.com/500-skyblue.zip" },
+    { name: "Navy Recolor", url: "https://example.com/500-navy.zip" },
+    { name: "Teal Recolor", url: "https://example.com/500-teal.zip" },
+  ],
+  // Add more milestones here...
+};
 
-  const container = document.getElementById('packs');
-  container.innerHTML = '';
+function loadPacks(milestone) {
+  const packsSection = document.getElementById("packs");
+  packsSection.innerHTML = ""; // Clear previous content
 
-  if (!packs[subs]) {
-    container.innerHTML = `<p>No packs for ${subs} subs yet.</p>`;
+  const packs = milestonePacks[milestone];
+  if (!packs) {
+    packsSection.innerHTML = "<p>No packs available for this milestone.</p>";
     return;
   }
 
-  packs[subs].forEach(pack => {
-    const btn = document.createElement('a');
-    btn.href = pack.url;
-    btn.className = 'pack-button';
-    btn.textContent = pack.name;
-    container.appendChild(btn);
+  const container = document.createElement("div");
+  container.className = "download-links-container";
+
+  packs.forEach(pack => {
+    const link = document.createElement("a");
+    link.href = pack.url;
+    link.textContent = pack.name;
+    link.className = "download-button";
+    link.target = "_blank";
+    container.appendChild(link);
   });
+
+  packsSection.appendChild(container);
 }
+
